@@ -43,7 +43,7 @@ const Navbar = (props) => {
             <hr/>
 
 
-            {/*Block Friends */}
+            Block Friends
             <div className={style.pip}>
                 <div className={style.item}>
                     <NavLink to='/friends' className={setActive}>Friends</NavLink>

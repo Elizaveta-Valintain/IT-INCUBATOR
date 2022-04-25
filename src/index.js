@@ -3,12 +3,12 @@ import reportWebVitals from './reportWebVitals';
 import ReactDOM from "react-dom/client";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
-import store from "./redux/store";
+import store from "./redux/redux-store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 let rerenderEntireTree = (state) => {
-
+    // debugger
     root.render(
         <React.StrictMode>
             <BrowserRouter>
@@ -18,8 +18,8 @@ let rerenderEntireTree = (state) => {
                     dispatch={store.dispatch.bind(store)}
                     //updateNewPostText={store.updateNewPostText.bind(store)}
 
-                   // addMessages={store.addMessages.bind(store)}
-                  //  updateNewMessageText={store.updateNewMessageText.bind(store)}
+                    // addMessages={store.addMessages.bind(store)}
+                    //  updateNewMessageText={store.updateNewMessageText.bind(store)}
                 />
             </BrowserRouter>
         </React.StrictMode>
@@ -28,7 +28,11 @@ let rerenderEntireTree = (state) => {
 
 
 rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => {
+        let state = store.getState()
+        rerenderEntireTree(state)
+    }
+);
 
 
 // ReactDOM.render(
