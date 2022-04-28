@@ -5,13 +5,14 @@ import sidebarReducer from "./sidebar-reducer";
 
 
 
-let reducer = combineReducers({
+let rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sideBar: sidebarReducer
 })
 
-let store = createStore(reducer);
+let store = createStore(rootReducer);
+// let store = createStore(profileReducer,dialogsReducer,sidebarReducer);
 
 
 window.store = store;

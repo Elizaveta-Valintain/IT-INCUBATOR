@@ -2,27 +2,21 @@ import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Mesage";
 import React from "react";
-import {addMessagesActionCreator, updateNewMessagesTextActionCreator} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
 
-    let messagesElements = props.dialogsPage.messages.map(m => <Message message={m.message}/>);
-    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let state = props.dialogsPage;
 
-    // let newMessageElement = React.createRef();
+    let messagesElements = state.messages.map(m => <Message message={m.message}/>);
+    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
 
-
-    let addMessage = () => {
-        //   let text = newMessageElement.current.value;
-        //    props.addMessages()
-        props.dispatch(addMessagesActionCreator())
+    let onSendMessageClick = () => {
+        props.sendMessage();
     }
 
-    let updateMessageText = (e) => {
+    let onNewMessageChange = (e) => {
         let text = e.target.value;
-        // console.log(text)
-        // props.updateNewMessageText(text);
-        props.dispatch(updateNewMessagesTextActionCreator(text));
+         props.updateNewMessagesBody(text);
     }
 
     return (
@@ -37,15 +31,14 @@ const Dialogs = (props) => {
             <div>
                 <div>
                     <textarea
-                        //ref={newMessageElement}
-                        value={props.dialogsPage.newMessageText}
-                        onChange={updateMessageText}
+                        value={state.newMessageText}
+                        onChange={onNewMessageChange}
                         placeholder='Enter your message'
                     />
                 </div>
                 <div>
                     <button
-                        onClick={addMessage}>Add message
+                        onClick={onSendMessageClick}>Add message
                     </button>
                 </div>
             </div>
