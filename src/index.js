@@ -4,23 +4,17 @@ import ReactDOM from "react-dom/client";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 import store from "./redux/redux-store";
+import {Provider} from "./StoreContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 let rerenderEntireTree = (state) => {
-    // debugger
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App
-                    state={state}
-
-                 //   dispatch={store.dispatch.bind(store)}
-                    //updateNewPostText={store.updateNewPostText.bind(store)}
-store={store}
-                    // addMessages={store.addMessages.bind(store)}
-                    //  updateNewMessageText={store.updateNewMessageText.bind(store)}
-                />
+                <Provider store={store}>
+                    <App/>
+                </Provider>
             </BrowserRouter>
         </React.StrictMode>
     );

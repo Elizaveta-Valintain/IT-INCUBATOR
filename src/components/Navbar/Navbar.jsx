@@ -3,23 +3,23 @@ import {NavLink} from "react-router-dom";
 
 const setActive = ({isActive}) => isActive ? `${style.activeLink}` : '';
 
-const Navbar = (props) => {
+const Navbar = () => {
 
-    let navBarElementsFriends = props.state.friends.map(
-        (f) => {
-            return (
-                <div>
-                    <div>
-                        <NavLink className={style.look} to='/'>O</NavLink>
-                    </div>
-                    <div className={style.name}>
-                        {f.name}
-                    </div>
-
-                </div>
-            )
-        }
-    );
+    // let navBarElementsFriends = props.state.friends.map(
+    //     (f) => {
+    //         return (
+    //             <div>
+    //                 <div>
+    //                     <NavLink className={style.look} to='/'>O</NavLink>
+    //                 </div>
+    //                 <div className={style.name}>
+    //                     {f.name}
+    //                 </div>
+    //
+    //             </div>
+    //         )
+    //     }
+    // );
 
     return (
         <nav className={style.nav}>
@@ -50,7 +50,7 @@ const Navbar = (props) => {
                 </div>
 
                 <div className={style.friends}>
-                    {navBarElementsFriends}
+                    {/*{navBarElementsFriends}*/}
                 </div>
 
             </div>
