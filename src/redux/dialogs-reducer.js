@@ -31,12 +31,19 @@ const dialogsReducer = (state = initReducersTree, action) => {
                 message: state.newMessageText
             }
 
-            state.messages.push(newMessages)
-            state.newMessageText = ''
-            break;
+            return {
+                ...state,
+                newMessageText: '',
+                messages: [...state.messages, newMessages]
+            }
+
+
         case UPDATE_NEW_MESSAGES_TEXT:
-            state.newMessageText = action.newText
-            break;
+            return {
+                ...state,
+                newMessageText: action.newText
+            }
+
         default:
             return state
     }
