@@ -35,6 +35,9 @@ const Navbar = () => {
             <div className={style.item}>
                 <NavLink to="/music" className={setActive}>Music</NavLink>
             </div>
+            <div className={style.item}>
+                <NavLink to="/users" className={setActive}>Users</NavLink>
+            </div>
 
             <div className={style.item}>
                 <NavLink to="/settings" className={setActive}>Settings</NavLink>
