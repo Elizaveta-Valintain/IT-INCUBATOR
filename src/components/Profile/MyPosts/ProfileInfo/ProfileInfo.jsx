@@ -1,4 +1,4 @@
-import s from './ProfileInfo.module.css';
+import style from './ProfileInfo.module.css';
 
 const ProfileInfo = () => {
     return (
@@ -6,7 +6,7 @@ const ProfileInfo = () => {
             <div>
                 <img src='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg' alt='profile img'/>
             </div>
-            <div className={s.discriptionBlock}>
+            <div className={style.discriptionBlock}>
                 ava+discription
             </div>
 

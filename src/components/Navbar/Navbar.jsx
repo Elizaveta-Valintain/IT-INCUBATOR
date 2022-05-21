@@ -38,6 +38,9 @@ const Navbar = () => {
             <div className={style.item}>
                 <NavLink to="/users" className={setActive}>Users</NavLink>
             </div>
+            <div className={style.item}>
+                <NavLink to="/calendar" className={setActive}>Calendar</NavLink>
+            </div>
 
             <div className={style.item}>
                 <NavLink to="/settings" className={setActive}>Settings</NavLink>

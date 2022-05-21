@@ -1,3 +1,5 @@
+import style from './Calendar.module.css'
+
 const Calendar = (props) => {
 
     let dm = (x, y) => {
@@ -9,23 +11,27 @@ const Calendar = (props) => {
 
 
     return (<div>
-        {props.calendar.days.map(c => <div key={c.id}>
-            <div>{c.day}</div>
-        </div>)}
+        {Date()}
 
-        {props.calendar.months.map(m => <div key={m.id}>
-            <div>{m.month}</div>
-        </div>)}
 
-        <div>
-            {dm(2, 2000)}
-            {dm(2, 2001)}
-            {dm(2, 2020)}
-            {dm(2, 2021)}
-            {dm(2, 2024)}
-            {dm(2, 2024)}
-            {dm(2, 2024)}
-        </div>
+
+        {/*{props.calendar.days.map(c => <div key={c.id}>*/}
+        {/*    <div>{c.day}</div>*/}
+        {/*</div>)}*/}
+
+        {/*{props.calendar.months.map(m => <div key={m.id} className={style.mainMonth}>*/}
+        {/*    <div className={style.month}>{m.month}</div>*/}
+        {/*</div>)}*/}
+
+        {/*<div>*/}
+        {/*    {dm(2, 2000)}*/}
+        {/*    {dm(2, 2001)}*/}
+        {/*    {dm(2, 2020)}*/}
+        {/*    {dm(2, 2021)}*/}
+        {/*    {dm(2, 2024)}*/}
+        {/*    {dm(2, 2024)}*/}
+        {/*    {dm(2, 2024)}*/}
+        {/*</div>*/}
 
     </div>)
 

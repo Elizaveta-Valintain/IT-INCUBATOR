@@ -1,33 +1,9 @@
-import users from "../components/Users/Users";
-
 const SET_USERS = 'SET_USERS';
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 
 
-let initReducersTree = {
-    users: [
-        {
-            id: 1, photoUrl: './../../murka.jpg', isFriend: false, fullName: 'Serhii', status: 'I\'m a boss',
-            location: {city: 'Mariupol', country: 'Ukraine'}
-        },
-
-        // {
-        //     id: 2, photoUrl: './../../murka.jpg', isFriend: true, fullName: 'Dima', status: 'This line is status',
-        //     location: {city: 'Львів', country: 'Україна'}
-        // },
-        //
-        // {
-        //     id: 3, photoUrl: './../../murka.jpg', isFriend: true, fullName: 'Olga', status: 'I girl - the too',
-        //     location: {city: 'Кута', country: 'Балі'}
-        // },
-        //
-        // {
-        //     id: 4, photoUrl: './../../murka.jpg', isFriend: false, fullName: 'Tima', status: 'All will be very good',
-        //     location: {city: 'Узунгел', country: 'Турція'}
-        // },
-    ]
-}
+let initReducersTree = {users: []}
 
 const usersReducer = (state = initReducersTree, action) => {
     switch (action.type) {
@@ -35,7 +11,7 @@ const usersReducer = (state = initReducersTree, action) => {
             return {
                 ...state, users: state.users.map(u => {
                         if (u.id === action.userId) {
-                            return {...u, isFriend: true}
+                            return {...u, followed: true}
                         }
                         return u
                     }
@@ -45,7 +21,7 @@ const usersReducer = (state = initReducersTree, action) => {
             return {
                 ...state, users: state.users.map(u => {
                         if (u.id === action.userId) {
-                            return {...u, isFriend: false}
+                            return {...u, followed: false}
                         }
                         return u
                     }
@@ -54,14 +30,14 @@ const usersReducer = (state = initReducersTree, action) => {
 
         case SET_USERS:
             return {
-                ...state, users: [  ...state.users, ...action.type]
+                ...state, users: [ ...action.users]
+                // ...state, users: [...state.users, ...action.users] так было, но кол-во юзеров удваивается
+                //т.е. делается два запроса к серверу и возвращается одинаковое кол-во пользователей два раза
             }
 
         default :
             return state
     }
-
- //   return state
 }
 
 export let followAC = (userId) => {
