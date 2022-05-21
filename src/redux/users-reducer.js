@@ -1,9 +1,19 @@
-const SET_USERS = 'SET_USERS';
+const SET_USERS = 'SET_USERS'
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_TOTAL_PAGE = 'SET_TOTAL_PAGE'
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 
-let initReducersTree = {users: []}
+let initReducersTree = {
+    users: [],
+
+    pageTotalCount: 0,
+    pageSizeView: 2,
+    pageCurrent: 1,
+    isFetching: false
+}
 
 const usersReducer = (state = initReducersTree, action) => {
     switch (action.type) {
@@ -27,14 +37,23 @@ const usersReducer = (state = initReducersTree, action) => {
                     }
                 )
             }
-
         case SET_USERS:
             return {
-                ...state, users: [ ...action.users]
-                // ...state, users: [...state.users, ...action.users] так было, но кол-во юзеров удваивается
-                //т.е. делается два запроса к серверу и возвращается одинаковое кол-во пользователей два раза
+                ...state, users: action.users
+                // ...state, users: [...action.users]
             }
-
+        case SET_CURRENT_PAGE:
+            return {
+                ...state, pageCurrent: action.pageCurrent
+            }
+        case SET_TOTAL_PAGE:
+            return {
+                ...state, pageTotalCount: action.pageTotalCount
+            }
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state, isFetching: action.isFetching
+            }
         default :
             return state
     }
@@ -49,6 +68,16 @@ export let unfollowAC = (userId) => {
 export let setUsersAC = (users) => {
     return {type: SET_USERS, users}
 }
+export let setCurrentPageAC = (setCurrentPage) => {
+    return {type: SET_CURRENT_PAGE, pageCurrent: setCurrentPage}
+}
 
+export let setTotalCountAC = (setTotalPage) => {
+    return {type: SET_TOTAL_PAGE, pageTotalCount: setTotalPage}
+}
 
-export default usersReducer
+export let toggleIsFetchingAC = (isFetching) => {
+    return {type: TOGGLE_IS_FETCHING, isFetching}
+}
+
+export default usersReducer;

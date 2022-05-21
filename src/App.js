@@ -9,8 +9,8 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersContainer from "./components/Users/UsersContainer";
 import CalendarContainer from "./components/Calendar/CalendarContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = () => {
     return (
@@ -23,7 +23,7 @@ const App = () => {
 
                     <Route path='/profile' element={<Profile/>}/>
 
-                    <Route path='/users' element={<UsersContainer/>}/>
+                    <Route path='/users' element={<UsersContainer />}/>
                     <Route path='/calendar' element={<CalendarContainer/>}/>
 
 
