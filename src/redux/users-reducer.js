@@ -31,7 +31,7 @@ const usersReducer = (state = initReducersTree, action) => {
         case SET_USERS:
             return {
                 ...state, users: [ ...action.users]
-                // ...state, users: [...state.users, ...action.users] так было, но кол-во юзеров удваивается
+                // ...state, users: [...state.users, ...action.users] //так было, но кол-во юзеров удваивается
                 //т.е. делается два запроса к серверу и возвращается одинаковое кол-во пользователей два раза
             }
 
