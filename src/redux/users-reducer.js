@@ -59,24 +59,24 @@ const usersReducer = (state = initReducersTree, action) => {
     }
 }
 
-export let followAC = (userId) => {
+export let follow = (userId) => {
     return {type: FOLLOW, userId}
 }
-export let unfollowAC = (userId) => {
+export let unfollow = (userId) => {
     return {type: UNFOLLOW, userId}
 }
-export let setUsersAC = (users) => {
+export let setUsers = (users) => {
     return {type: SET_USERS, users}
 }
-export let setCurrentPageAC = (setCurrentPage) => {
+export let setPageCurrent = (setCurrentPage) => {
     return {type: SET_CURRENT_PAGE, pageCurrent: setCurrentPage}
 }
 
-export let setTotalCountAC = (setTotalPage) => {
-    return {type: SET_TOTAL_PAGE, pageTotalCount: setTotalPage}
+export let setTotalPage = (pageTotalCount) => {
+    return {type: SET_TOTAL_PAGE, pageTotalCount}
 }
 
-export let toggleIsFetchingAC = (isFetching) => {
+export let toggleIsFetching = (isFetching) => {
     return {type: TOGGLE_IS_FETCHING, isFetching}
 }
 
