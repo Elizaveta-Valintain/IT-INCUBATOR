@@ -54,3 +54,58 @@
     color: white;
     font-size: 25px;
 }
+
+/*
+.app-wrapper {
+    display: grid;
+    width: 1600px;
+    margin: 0 auto;
+
+    grid-template-areas:
+          "h h"
+          "n c";
+
+
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+}
+
+.app-wrapper-content {
+    grid-area: c;
+    background-color: brown;
+}
+
+**/
+
+
+.ldsHourglass {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.ldsHourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 32px solid #cef;
+    border-color: #cef transparent #cef transparent;
+    animation: ldsHourglass 1.2s infinite;
+}
+@keyframes ldsHourglass {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+        transform: rotate(1800deg);
+    }
+}
