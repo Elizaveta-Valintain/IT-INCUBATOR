@@ -11,7 +11,7 @@ import {
 } from "../../redux/users-reducer";
 import axios from "axios";
 import Users from "./Users";
-import style from './Users.module.css'
+import Preloader from "../common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
 
@@ -39,7 +39,7 @@ class UsersContainer extends React.Component {
     render() {
 
         return <>
-            {this.props.isFetching ? <div className={style.ldsHourglass}></div> : null}
+            {this.props.isFetching ? <Preloader /> : null}
             <Users
                 pageTotalCount={this.props.pageTotalCount}
                 pageSizeView={this.props.pageSizeView}
