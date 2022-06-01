@@ -1,51 +1,39 @@
 import React from "react";
 import Profile from "./Profile";
+import axios from "axios";
 import {connect} from "react-redux";
-import {getUserProfile, getStatus, setUserProfile, updateStatus} from "../../redux/profile-reducer";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect"
-import {compose} from "redux";
+import {setUserProfile} from "../../redux/profile-reducer";
 
 class ProfileContainer extends React.Component {
-
+    // constructor(props) {
+    //     super(props);
+    //
+    //     this.state = {};
+    //
+    // }
     componentDidMount() {
-        // let userId = this.props.match.params.userId
-        let userId
-         if (!userId) {
-             userId = this.props.authorizedUserId
-             if (!userId){
-                 this.props.history.push('/login')
-             }
-         }
 
-          //  let userId = 16750
-
-        this.props.getUserProfile(userId);
-        this.props.getStatus(userId)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/16750`)
+            .then(response => {
+                this.props.setUserProfile(response.data)
+            })
     }
 
     render() {
-        return (<Profile
-            {...this.props}
-            profile={this.props.profile}
-            status={this.props.status}
-            updateStatus={this.props.updateStatus}
-        />);
+        return (
+            <Profile {...this.props} profile={this.props.profile}/>
+        );
     }
 }
+
+// ProfileContainer.propTypes = {};
 
 let mapStateToProps = (state) => {
     return {
-        profile: state.profilePage.profile,
-        status : state.profilePage.status,
-        authorizedUserId: state.auth.userId,
-        isAuth: state.auth.isAuth
+        profile: state.profilePage.profile
+
     }
 }
 
-
-export default compose(
-    withAuthRedirect,
-    connect(mapStateToProps, {
-        setUserProfile, getUserProfile, getStatus, updateStatus
-    })
-)(ProfileContainer)
+export default connect(mapStateToProps,{setUserProfile})(ProfileContainer);

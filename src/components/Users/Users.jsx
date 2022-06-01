@@ -1,9 +1,10 @@
 import React from "react";
 import style from './Users.module.css'
-import usersPhoto from '../common/murka.jpg'
+import usersPhoto from './../../axios/images/murka.jpg'
 import {NavLink} from "react-router-dom";
 
-const Users = React.memo((props) => {
+
+const Users = (props) => {
 
     let pageNumber = Math.ceil(props.pageTotalCount / props.pageSizeView);
     let pages = [];
@@ -19,11 +20,11 @@ const Users = React.memo((props) => {
 
     return (<div>
         {slicedPages.map(p => {
-            return <span key={p.id}
-                         className={props.pageCurrent === p && style.selectedPage}
-                         onClick={(e) => {
-                             props.onPageChanged(p)
-                         }}
+            return <span
+                className={props.pageCurrent === p && style.selectedPage}
+                onClick={(e) => {
+                    props.onPageChanged(p)
+                }}
             > {p} </span>
         })}
 
@@ -31,17 +32,17 @@ const Users = React.memo((props) => {
             <div className={style.item}>
                 <div>
                     <div>
-                        <NavLink to={`/profile/` + u.id}>
+                        <NavLink to={`/profile/`+u.id}>
                             <img src={u.photos.small != null ? u.photos.small : usersPhoto} alt={""}/>
                         </NavLink>
                     </div>
 
                     <div>
-                        {u.followed ? <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                              onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
-                                    : <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                              onClick={() => { props.follow(u.id) }}>Follow</button>
-                        }
+                        {u.followed ? <button onClick={() => {
+                            props.unfollow(u.id)
+                        }}>Unfollow</button> : <button onClick={() => {
+                            props.follow(u.id)
+                        }}>Follow</button>}
                     </div>
                 </div>
                 <div className={style.left}>
@@ -55,6 +56,10 @@ const Users = React.memo((props) => {
             </div>
         </div>)}
     </div>)
-})
+}
+
 
 export default Users
+
+
+
