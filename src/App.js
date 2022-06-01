@@ -1,7 +1,6 @@
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
 // noinspection ES6CheckImport
 import {Route, Routes} from "react-router-dom";
 import News from "./components/News/News";
@@ -11,6 +10,7 @@ import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import CalendarContainer from "./components/Calendar/CalendarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = () => {
     return (
@@ -21,7 +21,7 @@ const App = () => {
                 <Routes>
                     <Route path='/dialogs' element={<DialogsContainer/>}/>
 
-                    <Route path='/profile' element={<Profile/>}/>
+                    <Route path='/profile/16750' element={<ProfileContainer/>}/>
 
                     <Route path='/users' element={<UsersContainer />}/>
                     <Route path='/calendar' element={<CalendarContainer/>}/>
