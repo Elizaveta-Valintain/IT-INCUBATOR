@@ -4,6 +4,7 @@ import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
 import calendarReducer from "./calendar-reducer";
+import AuthReducer from "./auth-reducer";
 
 
 
@@ -12,7 +13,8 @@ let rootReducer = combineReducers({
     dialogsPage: dialogsReducer,
     //sideBar: sidebarReducer
     usersPage: usersReducer,
-    calendarPage: calendarReducer
+    calendarPage: calendarReducer,
+    auth: AuthReducer
 })
 
 let store = createStore(rootReducer);

@@ -5,3 +5,14 @@
 .header img{
     width: 20px;
 }
+
+.loginBlock{
+    float: right;
+    color: white;
+    margin: 10px;
+    font-size: 25px;
+}
+
+.loginBlock a {
+    color: white;
+}
