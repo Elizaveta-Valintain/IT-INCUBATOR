@@ -10,8 +10,8 @@ let initReducersTree = {
     users: [],
 
     pageTotalCount: 0,
-    pageSizeView: 2,
-    pageCurrent: 3781,
+    pageSizeView: 10,
+    pageCurrent: 1,
     isFetching: false
 }
 
@@ -40,7 +40,6 @@ const usersReducer = (state = initReducersTree, action) => {
         case SET_USERS:
             return {
                 ...state, users: action.users
-                // ...state, users: [...action.users]
             }
         case SET_CURRENT_PAGE:
             return {
