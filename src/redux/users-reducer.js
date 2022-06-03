@@ -11,7 +11,7 @@ let initReducersTree = {
 
     pageTotalCount: 0,
     pageSizeView: 2,
-    pageCurrent: 3778,
+    pageCurrent: 3781,
     isFetching: false
 }
 
