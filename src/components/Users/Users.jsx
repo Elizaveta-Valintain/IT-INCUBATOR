@@ -4,7 +4,6 @@ import usersPhoto from './../../axios/images/murka.jpg'
 import {NavLink} from "react-router-dom";
 import {followAPI} from "../../api/followAPI";
 
-
 const Users = (props) => {
 
     let pageNumber = Math.ceil(props.pageTotalCount / props.pageSizeView);
@@ -39,23 +38,25 @@ const Users = (props) => {
                     </div>
 
                     <div>
-                        {u.followed ? <button onClick={() => {
-
+                        {u.followed ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                            props.toggleFollowingInProgress(true, u.id)
                             followAPI.setUnFollow(u.id)
                                 .then(response => {
                                     if (response.data.resultCode === 0) {
                                         props.unfollow(u.id)
                                     }
+                                    props.toggleFollowingInProgress(false, u.id)
                                 })
 
-                        }}>Unfollow</button> : <button onClick={() => {
-
-                           followAPI.setFollow(u.id)
+                        }}>Unfollow</button> : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                            props.toggleFollowingInProgress(true, u.id)
+                            followAPI.setFollow(u.id)
 
                                 .then(response => {
                                     if (response.data.resultCode === 0) {
                                         props.follow(u.id)
                                     }
+                                    props.toggleFollowingInProgress(false, u.id)
                                 })
 
                         }}>Follow</button>}
@@ -74,8 +75,4 @@ const Users = (props) => {
     </div>)
 }
 
-
 export default Users
-
-
-
