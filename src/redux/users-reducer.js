@@ -4,15 +4,16 @@ const UNFOLLOW = 'UNFOLLOW'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_PAGE = 'SET_TOTAL_PAGE'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
 
 
 let initReducersTree = {
     users: [],
-
     pageTotalCount: 0,
     pageSizeView: 10,
     pageCurrent: 1,
-    isFetching: false
+    isFetching: false,
+    followingInProgress: []
 }
 
 const usersReducer = (state = initReducersTree, action) => {
@@ -53,6 +54,12 @@ const usersReducer = (state = initReducersTree, action) => {
             return {
                 ...state, isFetching: action.isFetching
             }
+        case TOGGLE_IS_FOLLOWING_PROGRESS:
+            return {
+                ...state, followingInProgress: action.followingInProgress
+                    ? [...state.followingInProgress, action.userId]
+                    :    state.followingInProgress.filter(id => id != action.userId)
+            }
         default :
             return state
     }
@@ -78,5 +85,10 @@ export let setTotalPage = (pageTotalCount) => {
 export let toggleIsFetching = (isFetching) => {
     return {type: TOGGLE_IS_FETCHING, isFetching}
 }
+
+export let toggleFollowingInProgress = (followingInProgress, userId)=>{
+    return {type: TOGGLE_IS_FOLLOWING_PROGRESS, followingInProgress, userId}
+}
+
 
 export default usersReducer;
