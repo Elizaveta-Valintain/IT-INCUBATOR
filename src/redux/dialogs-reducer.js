@@ -47,7 +47,7 @@ const dialogsReducer = (state = initReducersTree, action) => {
         default:
             return state
     }
-    return state
+    // return state
 }
 
 export let addMessagesActionCreator = () => {
