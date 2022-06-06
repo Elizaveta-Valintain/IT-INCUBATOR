@@ -1,26 +1,10 @@
+import React from "react";
 import style from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 
 const setActive = ({isActive}) => isActive ? `${style.activeLink}` : '';
 
 const Navbar = () => {
-
-    // let navBarElementsFriends = props.state.friends.map(
-    //     (f) => {
-    //         return (
-    //             <div>
-    //                 <div>
-    //                     <NavLink className={style.look} to='/'>O</NavLink>
-    //                 </div>
-    //                 <div className={style.name}>
-    //                     {f.name}
-    //                 </div>
-    //
-    //             </div>
-    //         )
-    //     }
-    // );
-
     return (
         <nav className={style.nav}>
             <div className={style.item}>
@@ -38,10 +22,6 @@ const Navbar = () => {
             <div className={style.item}>
                 <NavLink to="/users" className={setActive}>Users</NavLink>
             </div>
-            <div className={style.item}>
-                <NavLink to="/calendar" className={setActive}>Calendar</NavLink>
-            </div>
-
             <div className={style.item}>
                 <NavLink to="/settings" className={setActive}>Settings</NavLink>
             </div>
