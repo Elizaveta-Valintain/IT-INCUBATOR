@@ -1,3 +1,5 @@
+import {authApi} from "../api/authAPI";
+
 const SET_USER_DATE = 'SET_USER_DATE'
 
 const initReducersTree = {
@@ -23,5 +25,14 @@ const AuthReducer = (state = initReducersTree, action) => {
 };
 
 export const setAuthUserData = (userId, login, email) => ({type: SET_USER_DATE, data: {userId, login, email}})
+export const getAuthUserData = () =>  (dispatch) => {
+    authApi.getAuthMe()
+        .then(data => {
+            if (data.resultCode === 0) {
+                let {id, login, email} = data.data
+                dispatch(setAuthUserData(id, login, email))
+            }
+        })
+}
 
 export default AuthReducer;
