@@ -10,7 +10,6 @@ import thunkMiddleware from 'redux-thunk'
 let rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
-    //sideBar: sidebarReducer
     usersPage: usersReducer,
     auth: AuthReducer
 })
