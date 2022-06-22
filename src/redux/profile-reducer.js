@@ -3,6 +3,7 @@ import {profileAPI} from "../api/profileAPI";
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS'
 
 let initReducersTree = {
     posts: [
@@ -13,7 +14,8 @@ let initReducersTree = {
         {id: 5, message: 'Pooost', likesCount: 106}
     ],
     newPostText: 'UA-Serhii&Natali',
-    profile: null
+    profile: null,
+    status: "LOCAL STATE"
 }
 
 const profileReducer = (state = initReducersTree, action) => {
@@ -30,7 +32,6 @@ const profileReducer = (state = initReducersTree, action) => {
                 newPostText: '',
                 posts: [...state.posts, newPost]
             }
-
         case UPDATE_NEW_POST_TEXT:
             return {
                 ...state,
@@ -41,7 +42,11 @@ const profileReducer = (state = initReducersTree, action) => {
                 ...state,
                 profile: action.profile
             }
-
+        case SET_STATUS:
+            return {
+                ...state,
+                status: action.status
+            }
         default:
             return state
     }
@@ -63,14 +68,36 @@ export let setUserProfile = (profile) => {
     return ({type: SET_USER_PROFILE, profile})
 }
 
+export let setStatus = (status) => {
+    return ({type: SET_STATUS, status})
+}
 
-export const getUser = () => (dispatch) => {
 
-    profileAPI.getUserProfile(24100)
+export const getUserProfile = (userId) => (dispatch) => {
+
+    profileAPI.getProfile(userId)
         .then(response => {
             dispatch(setUserProfile(response.data))
         })
+}
 
+export const getStatus = (userId) => (dispatch) => {
+
+    profileAPI.getStatus(userId)
+        .then(response => {
+            dispatch(setStatus(response.data))
+        })
+}
+
+export const updateStatus = (status) => (dispatch) => {
+
+    profileAPI.updateStatus(status)
+        .then(response => {
+            if (response.resultCode === 0) {
+                dispatch(setStatus(status))
+            }
+
+        })
 }
 
 
