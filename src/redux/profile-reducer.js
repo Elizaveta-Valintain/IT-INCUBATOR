@@ -15,7 +15,7 @@ let initReducersTree = {
     ],
     newPostText: 'UA-Serhii&Natali',
     profile: null,
-    status: "LOCAL STATE"
+    status: ""
 }
 
 const profileReducer = (state = initReducersTree, action) => {
