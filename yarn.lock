@@ -1444,7 +1444,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.0, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.18.3
   resolution: "@babel/runtime@npm:7.18.3"
   dependencies:
@@ -2115,6 +2115,17 @@ __metadata:
     webpack-plugin-serve:
       optional: true
   checksum: 3490649181878cc8808fb91f3870ef095e5a1fb9647b3ac83740df07379c9d1cf540f24bf2b09d5f26a3a8c805b2c6b9c5be7192bdb9317d0ffffa67426e9f66
+  languageName: node
+  linkType: hard
+
+"@redux-devtools/extension@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@redux-devtools/extension@npm:3.2.2"
+  dependencies:
+    "@babel/runtime": ^7.17.0
+  peerDependencies:
+    redux: ^3.1.0 || ^4.0.0
+  checksum: f7668cc72f4d570e9f63a3581185047b5eab1564dfecf0bcea7974d9bc08fe8f87ea3acd658cd1db160f0a82c9e879a49b3cd1c193f6e0d8c1490af9975c20e5
   languageName: node
   linkType: hard
 
@@ -5389,6 +5400,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"es6-error@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "es6-error@npm:4.1.1"
+  checksum: ae41332a51ec1323da6bbc5d75b7803ccdeddfae17c41b6166ebbafc8e8beb7a7b80b884b7fab1cc80df485860ac3c59d78605e860bb4f8cd816b3d6ade0d010
+  languageName: node
+  linkType: hard
+
 "escalade@npm:^3.1.1":
   version: 3.1.1
   resolution: "escalade@npm:3.1.1"
@@ -6890,6 +6908,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"invariant@npm:^2.2.4":
+  version: 2.2.4
+  resolution: "invariant@npm:2.2.4"
+  dependencies:
+    loose-envify: ^1.0.0
+  checksum: cc3182d793aad82a8d1f0af697b462939cb46066ec48bbf1707c150ad5fad6406137e91a262022c269702e01621f35ef60269f6c0d7fd178487959809acdfb14
+  languageName: node
+  linkType: hard
+
 "ip@npm:^1.1.5":
   version: 1.1.8
   resolution: "ip@npm:1.1.8"
@@ -7065,6 +7092,13 @@ __metadata:
   version: 1.0.1
   resolution: "is-potential-custom-element-name@npm:1.0.1"
   checksum: ced7bbbb6433a5b684af581872afe0e1767e2d1146b2207ca0068a648fb5cab9d898495d1ac0583524faaf24ca98176a7d9876363097c2d14fee6dd324f3a1ab
+  languageName: node
+  linkType: hard
+
+"is-promise@npm:^2.1.0":
+  version: 2.2.2
+  resolution: "is-promise@npm:2.2.2"
+  checksum: 18bf7d1c59953e0ad82a1ed963fb3dc0d135c8f299a14f89a17af312fc918373136e56028e8831700e1933519630cc2fd4179a777030330fde20d34e96f40c78
   languageName: node
   linkType: hard
 
@@ -8158,7 +8192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -10062,7 +10096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.1, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -10229,7 +10263,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1, react-is@npm:^16.7.0":
+"react-is@npm:^16.13.1, react-is@npm:^16.4.2, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
@@ -10254,6 +10288,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-it@workspace:."
   dependencies:
+    "@redux-devtools/extension": ^3.2.2
     "@testing-library/jest-dom": ^5.16.3
     "@testing-library/react": ^12.1.4
     "@testing-library/user-event": ^13.5.0
@@ -10265,6 +10300,7 @@ __metadata:
     react-router-dom: ^6.3.0
     react-scripts: 5.0.1
     redux: ^4.2.0
+    redux-form: ^8.3.8
     redux-thunk: ^2.4.1
     web-vitals: ^2.1.4
   languageName: unknown
@@ -10469,6 +10505,30 @@ __metadata:
     indent-string: ^4.0.0
     strip-indent: ^3.0.0
   checksum: fa1ef20404a2d399235e83cc80bd55a956642e37dd197b4b612ba7327bf87fa32745aeb4a1634b2bab25467164ab4ed9c15be2c307923dd08b0fe7c52431ae6b
+  languageName: node
+  linkType: hard
+
+"redux-form@npm:^8.3.8":
+  version: 8.3.8
+  resolution: "redux-form@npm:8.3.8"
+  dependencies:
+    "@babel/runtime": ^7.9.2
+    es6-error: ^4.1.1
+    hoist-non-react-statics: ^3.3.2
+    invariant: ^2.2.4
+    is-promise: ^2.1.0
+    lodash: ^4.17.15
+    prop-types: ^15.6.1
+    react-is: ^16.4.2
+  peerDependencies:
+    immutable: ^3.8.2 || ^4.0.0
+    react: ^16.4.2 || ^17.0.0
+    react-redux: ^6.0.1 || ^7.0.0
+    redux: ^3.7.2 || ^4.0.0
+  peerDependenciesMeta:
+    immutable:
+      optional: true
+  checksum: 34c374ed3e9c40add1334ec1d3125f3920e2024b46579235f1b3c5b45f9025e8906a493845be7f25aa84a60f7e0d7ca898df810172775be495bbac9ca9f16965
   languageName: node
   linkType: hard
 

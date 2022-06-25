@@ -1,5 +1,4 @@
 const ADD_MESSAGES = 'ADD-MESSAGES';
-const UPDATE_NEW_MESSAGES_TEXT = 'UPDATE-NEW-MESSAGES-TEXT';
 
 let initReducersTree = {
     dialogs: [
@@ -18,8 +17,7 @@ let initReducersTree = {
         {id: 4, message: 'Yo'},
         {id: 5, message: 'Yo'},
         {id: 6, message: 'Yo'}
-    ],
-    newMessageText: 'UA-Serhii'
+    ]
 }
 
 const dialogsReducer = (state = initReducersTree, action) => {
@@ -28,37 +26,24 @@ const dialogsReducer = (state = initReducersTree, action) => {
         case ADD_MESSAGES:
             let newMessages = {
                 id: 7,
-                message: state.newMessageText
+                message: action.newMessageText
             }
 
             return {
                 ...state,
-                newMessageText: '',
                 messages: [...state.messages, newMessages]
-            }
-
-
-        case UPDATE_NEW_MESSAGES_TEXT:
-            return {
-                ...state,
-                newMessageText: action.newText
             }
 
         default:
             return state
     }
-    // return state
+
 }
 
-export let addMessagesActionCreator = () => {
+export let addMessagesActionCreator = (newMessageText) => {
     return (
-        {type: ADD_MESSAGES}
+        {type: ADD_MESSAGES, newMessageText}
     )
 }
 
-export let updateNewMessagesTextActionCreator = (text) => {
-    return (
-        {type: UPDATE_NEW_MESSAGES_TEXT, newText: text}
-    )
-}
 export default dialogsReducer
