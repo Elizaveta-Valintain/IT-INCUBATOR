@@ -1,5 +1,4 @@
 import {authApi} from "../api/authAPI";
-import Captcha from "../components/Login/Captcha";
 import {stopSubmit} from "redux-form";
 
 const SET_USER_DATE = 'SET_USER_DATE'
@@ -31,7 +30,7 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({
 })
 
 export const getAuthUserData = () => (dispatch) => {
-    authApi.me()
+    return authApi.me()
         .then(data => {
             if (data.resultCode === 0) {
                 let {id, login, email} = data.data
