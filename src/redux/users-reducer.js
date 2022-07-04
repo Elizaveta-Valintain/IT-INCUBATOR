@@ -87,11 +87,10 @@ export let toggleFollowingInProgress = (followingInProgress, userId) => {
     return {type: TOGGLE_IS_FOLLOWING_PROGRESS, followingInProgress, userId}
 }
 
-
-
-export const getUsers = (pageCurrent, pageSizeView) => (dispatch) => {
+export const  requestUsers = (page, pageSizeView) => (dispatch) => {
     dispatch(toggleIsFetching(true))
-    usersApi.getUsersDefault(pageCurrent, pageSizeView)
+
+    usersApi.getUsersDefault(page, pageSizeView)
         .then(data => {
             dispatch(toggleIsFetching(false))
             dispatch(setUsers(data.items))
