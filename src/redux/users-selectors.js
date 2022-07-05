@@ -18,7 +18,7 @@ export const getPageTotalCount = (state) =>{
 }
 
 export const getPageCurrent = (state) =>{
-    return state.usersPage.pageCurrent
+    return state.usersPage.pageCurrent 
 }
 
 export const getIsFetching = (state) =>{
