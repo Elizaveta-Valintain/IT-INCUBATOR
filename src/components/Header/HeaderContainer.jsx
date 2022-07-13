@@ -3,7 +3,7 @@ import Header from "./Header";
 import {logout} from "../../redux/auth-reducer";
 import {connect} from "react-redux";
 
-class HeaderContainer extends React.Component {
+class HeaderContainer extends React.PureComponent {
 
     render() {
         return <Header {...this.props}/>
