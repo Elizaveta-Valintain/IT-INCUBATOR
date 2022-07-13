@@ -6,33 +6,34 @@ import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
 import {Textarea} from "../common/FormsControl/FormsControl";
 
-const Dialogs = (props) => {
-    let state = props.dialogsPage;
-    let messagesElements = state.messages.map(m => <Message message={m.message} key={m.id}/>);
-    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>);
+const Dialogs = React.memo((props) => {
+        let state = props.dialogsPage;
+        let messagesElements = state.messages.map(m => <Message message={m.message} key={m.id}/>);
+        let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id}/>);
 
-    let onSubmit = (value) => {
-        props.sendMessage(value.newMessageText);
+        let onSubmit = (value) => {
+            props.sendMessage(value.newMessageText);
+        }
+
+        return (
+            <div className={s.dialogs}>
+                <div className={s.dialogsItem}>
+                    {dialogsElements}
+                </div>
+                <div className={s.messages}>
+                    {messagesElements}
+                </div>
+                <div></div>
+
+                <AddMessageFormRedux onSubmit={onSubmit}/>
+            </div>
+        )
     }
-
-    return (
-        <div className={s.dialogs}>
-            <div className={s.dialogsItem}>
-                {dialogsElements}
-            </div>
-            <div className={s.messages}>
-                {messagesElements}
-            </div>
-            <div></div>
-
-            <AddMessageFormRedux onSubmit={onSubmit}/>
-        </div>
-    )
-}
+)
 
 const maxLength50 = maxLengthCreator(50)
 
-const AddMessageForm = (props) => {
+const AddMessageForm = React.memo((props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -50,7 +51,7 @@ const AddMessageForm = (props) => {
             </div>
         </form>
     )
-}
+})
 
 
 const AddMessageFormRedux = reduxForm({

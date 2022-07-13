@@ -2,7 +2,7 @@ import React from "react";
 import s from './../Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
-const DialogItem = (props) => {
+const DialogItem = React.memo((props) => {
     let path = '/dialogs/' + props.id;
 
     return (
@@ -10,6 +10,6 @@ const DialogItem = (props) => {
             <NavLink to={path}>{props.name}</NavLink>
         </div>
     )
-}
+})
 
 export default DialogItem;

@@ -3,7 +3,7 @@ import style from './Users.module.css'
 import usersPhoto from '../common/murka.jpg'
 import {NavLink} from "react-router-dom";
 
-const Users = (props) => {
+const Users = React.memo((props) => {
 
     let pageNumber = Math.ceil(props.pageTotalCount / props.pageSizeView);
     let pages = [];
@@ -55,6 +55,6 @@ const Users = (props) => {
             </div>
         </div>)}
     </div>)
-}
+})
 
 export default Users
