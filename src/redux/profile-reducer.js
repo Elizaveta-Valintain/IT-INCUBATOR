@@ -3,6 +3,7 @@ import {profileAPI} from "../api/profileAPI";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS'
+const DELETE_POST = 'DELETE_POST'
 
 let initReducersTree = {
     posts: [
@@ -39,6 +40,14 @@ const profileReducer = (state = initReducersTree, action) => {
                 ...state,
                 status: action.status
             }
+        case DELETE_POST:
+            return {
+                ...state,
+                posts: state.posts.filter(p => p.id != action.postId )
+                // ...state,
+                // posts: [...state.posts.map(p => p.id != action.postId)]
+            }
+
         default:
             return state
     }
@@ -47,6 +56,12 @@ const profileReducer = (state = initReducersTree, action) => {
 export let addPostActionCreator = (newPostText) => {
     return (
         {type: ADD_POST, newPostText}
+    )
+}
+
+export let deletePost = (postId)=>{
+    return(
+        {type: DELETE_POST, postId}
     )
 }
 
