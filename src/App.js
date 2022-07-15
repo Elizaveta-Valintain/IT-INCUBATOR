@@ -11,6 +11,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/login";
 
 const App = () => {
     return (
@@ -20,13 +21,11 @@ const App = () => {
             <div className='app-wrapper-content'>
                 <Routes>
                     <Route path='/dialogs' element={<DialogsContainer/>}/>
-
                     <Route path='/profile' element={<ProfileContainer/>}/>
-
                     <Route path='/users' element={<UsersContainer/>}/>
-
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
+                    <Route path='/login' element={<Login/>}/>
                     <Route path='/settings' element={<Settings/>}/>
                     <Route path='/friends' element={<Friends/>}/>
                 </Routes>
